@@ -13,7 +13,7 @@ app.use(express.json());
 connectDb();
 
 app.use(cors({
-  origin : "http://localhost:3000",
+  origin : "https://mern-stack-ecommerce-frontend-git-main-yousef1242.vercel.app",
 }))
 
 
