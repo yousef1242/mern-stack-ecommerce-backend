@@ -5,18 +5,20 @@ const cors = require("cors");
 
 const app = express();
 
-
 dotenv.config();
 
 app.use(express.json());
 
 connectDb();
 
-app.use(cors({
-  origin : "https://mern-stack-ecommerce-frontend-git-main-yousef1242.vercel.app",
-}))
-
-
+app.use(
+  cors({
+    origin: [
+      "https://mern-stack-ecommerce-frontend-git-main-yousef1242.vercel.app",
+      "https://mern-stack-ecommerce-frontend.vercel.app",
+    ],
+  })
+);
 
 // routes
 app.use("/api/auth", require("./routes/authRoutes"));
@@ -30,7 +32,6 @@ app.use("/api/categories", require("./routes/categoryRoutes"));
 app.use("/api/cart", require("./routes/cartRoutes"));
 
 app.use("/api/orders", require("./routes/orderRoutes"));
-
 
 app.listen(8080, () => {
   try {
