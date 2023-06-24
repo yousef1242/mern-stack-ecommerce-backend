@@ -96,14 +96,13 @@ const deleteAllProducts = expressAsyncHandler(async (req, res) => {
   @Routes /api/products/update/:productId
 ****************************/
 const updateProductInfoNotImagesById = expressAsyncHandler(async (req, res) => {
-  const product = await Products.findByIdAndUpdate(
-    req.params.productId,
+  const product = await Products.findOneAndUpdate(
+    { name: req.params.productName },
     {
       $set: {
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
-        delivery: req.body.delivery,
         disCountPrecent: req.body.disCountPrecent,
         category: req.body.category,
         gender: req.body.gender,
@@ -112,9 +111,7 @@ const updateProductInfoNotImagesById = expressAsyncHandler(async (req, res) => {
     { new: true }
   );
 
-  res
-    .status(200)
-    .json({ message: "Product has been updated", product: product });
+  res.status(200).json({ message: "Product has been updated" });
 });
 
 module.exports = {

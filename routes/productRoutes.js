@@ -45,7 +45,7 @@ router.delete("/delete", deleteAllProducts);
 
 // update product
 router.put(
-  "/update/:productId",
+  "/update/:productName",
   verifyToken,
   verifyTokenAndAdmin,
   updateProductInfoNotImagesById

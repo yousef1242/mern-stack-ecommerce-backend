@@ -16,6 +16,7 @@ app.use(
     origin: [
       "https://mern-stack-ecommerce-frontend-git-main-yousef1242.vercel.app",
       "https://mern-stack-ecommerce-frontend.vercel.app",
+      "http://localhost:3000"
     ],
   })
 );
